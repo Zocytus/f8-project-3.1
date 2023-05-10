@@ -21,7 +21,7 @@
     <header class="header">
       <div class="container">
         <div class="header-top">
-          <a href="#home">
+          <a href="#">
             <div class="header-top__logo">
               <img
                 src="./assets/img/icon/logo.svg"
@@ -34,7 +34,7 @@
           <nav class="navbar">
             <ul class="navbar__list">
               <li class="navbar__item">
-                <a href="#home" class="navbar__link active">Home</a>
+                <a href="#" class="navbar__link active">Home</a>
               </li>
               <li class="navbar__item">
                 <a href="#services" class="navbar__link">About</a>
@@ -172,7 +172,7 @@
       </section>
 
       <!-- Service -->
-      <section class="service">
+      <section class="service" id="services">
         <div class="container">
           <section class="service__inner">
             <div class="service__top">
@@ -267,7 +267,7 @@
       </section>
 
       <!-- About -->
-      <section class="about">
+      <section class="about" id="about">
         <div class="container">
           <div class="about__inner">
             <div class="media__line">
@@ -417,7 +417,7 @@
       </section>
 
       <!-- Customers -->
-      <section class="customers">
+      <section class="customers" id="doctors">
         <div class="container">
           <div class="customers__inner">
             <div class="customers-heading">
@@ -719,5 +719,36 @@
         </div>
       </div>
     </footer>
+
+    <!-- Smooth Scrolling -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Add smooth scrolling to all links
+        $("a").on("click", function (event) {
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $("html, body").animate(
+              {
+                scrollTop: $(hash).offset().top,
+              },
+              800,
+              function () {
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              }
+            );
+          } // End if
+        });
+      });
+    </script>
   </body>
 </html>
